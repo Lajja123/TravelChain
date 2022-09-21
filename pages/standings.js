@@ -1,0 +1,38 @@
+import Image from "next/image";
+const Standings = () => {
+  return (
+    <div className="standings-1">
+      <div className="img">
+        <Image src="/images/Artboard47.jpg" width={2390} height={514} />
+        <div className="user-info-1">STANDING</div>
+        <div className="content">
+          <div className="leadderboard">
+            <div className="heading">
+              <div className="rank">Rank</div>
+              <div className="rank">Username</div>
+              <div className="rank">Level</div>
+            </div>
+            <div className="containers">
+              <div className="rank-c">1st</div>
+              <div className="username-c">Lajja Vaniya</div>
+              <div className="level-c">
+                <span className="level3">
+                  <Image
+                    src="/images/Artboard20.jpg"
+                    width={109}
+                    height={106}
+                  />
+                </span>
+              </div>
+            </div>
+            {/* <div className="transaction">Transaction</div>
+              <div className="gtu">Goa to Udaipur</div>
+              <div className="gtu">Goa to manali</div> */}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Standings;
