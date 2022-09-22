@@ -66,16 +66,18 @@ export default function Home() {
           </span>
         </a>
       </footer> */}
-      <div style={{ height: "990px" }}>
+      <div style={{ height: "700px" }}>
         <div className="index-image-main">
           <Image src="/images/landing.jpg" layout="fill" objectFit="fill" />
         </div>
-        {/* <div className="index-floats">
+        <div className="index-floats">
           <div className="index-text">
-            <div className="index-text1">Unforgetabble Trip</div>
-            <Image src="/images/downArrow.jpg" width="20px" height="80px" />
+            {/* <div className="index-text1">
+              Get An Unforgetable Trip on Travel Chain
+            </div> */}
+            {/* <Image src="/images/downArrow.jpg" width="20px" height="80px" /> */}
           </div>
-        </div> */}
+        </div>
         <div className="index-packages">
           <div className="package-list">
             <div className="package">

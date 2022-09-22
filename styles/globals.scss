@@ -1,23 +1,23 @@
-@font-face {
-  font-family: "adelia";
-  src: url("../public/fonts/adelia.ttf");
-}
-@font-face {
-  font-family: "IBMPlexSansThaiLooped-Bold";
-  src: url("../public/fonts/IBMPlexSansThaiLooped-Bold.ttf");
-}
-@font-face {
-  font-family: "IBMPlexSansThaiLooped";
-  src: url("../public/fonts/IBMPlexSansThaiLooped-Bold.ttf");
-}
-@font-face {
-  font-family: "IBMPlexSansThaiLooped-Thin";
-  src: url("../public/fonts/IBMPlexSansThaiLooped-Thin.ttf");
-}
-@font-face {
-  font-family: "MyriadPro-Regular";
-  src: url("../public/fonts/IBMPlexSansThaiLooped-Thin.ttf");
-}
+// @font-face {
+//   font-family: "adelia";
+//   src: url("../public/fonts/adelia.ttf");
+// }
+// @font-face {
+//   font-family: "IBMPlexSansThaiLooped-Bold";
+//   src: url("../public/fonts/IBMPlexSansThaiLooped-Bold.ttf");
+// }
+// @font-face {
+//   font-family: "IBMPlexSansThaiLooped";
+//   src: url("../public/fonts/IBMPlexSansThaiLooped-Bold.ttf");
+// }
+// @font-face {
+//   font-family: "IBMPlexSansThaiLooped-Thin";
+//   src: url("../public/fonts/IBMPlexSansThaiLooped-Thin.ttf");
+// }
+// @font-face {
+//   font-family: "MyriadPro-Regular";
+//   src: url("../public/fonts/IBMPlexSansThaiLooped-Thin.ttf");
+// }
 
 html,
 body {
@@ -44,12 +44,11 @@ a {
 .navs {
   display: flex;
   height: 100%;
-  align-items: center;
-  align-content: center;
+
   background-color: #0000;
 
   .nav-left {
-    flex-grow: 1;
+    flex-grow: 0.5;
     padding: 0 20px;
   }
 
@@ -140,6 +139,7 @@ a {
       padding: 0 20px;
       width: 200px;
       text-align: right;
+      margin-left: 70%;
 
       .nav-signup {
         overflow: hidden;
@@ -182,9 +182,9 @@ a {
   }
 
   .index-floats {
-    width: 400px;
-    margin-top: 260px;
-    margin-left: 100px;
+    // width: 400px;
+    margin-top: 5%;
+    margin-left: 50%;
 
     .index-text {
       display: flex;
@@ -193,11 +193,14 @@ a {
       top: 200px;
 
       .index-text1 {
-        font-family: "IBMPlexSansThaiLooped-Thin";
-        font-size: 37px;
-        font-weight: 100;
-        color: #ffc685;
-        padding-right: 20px;
+        // font-family: "IBMPlexSansThaiLooped-Thin";
+        font-size: 5rem;
+        font-family: "IBMPlexSansThaiLooped-Bold";
+        color: #f7931e;
+        // margin-left: 30% !important;
+        margin: 0 auto;
+        // color: #ffc685;
+        // padding-right: 20px;
       }
     }
   }
