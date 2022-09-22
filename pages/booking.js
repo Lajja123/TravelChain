@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
+import Image from "next/image";
 
 import { useRouter } from "next/router";
 // import Image from "next/image";
@@ -67,7 +68,8 @@ const Booking = () => {
     // console.log(id)
   };
   return (
-    <div>
+    <div className="hotel-search-main">
+      <Image src="/images/hotelbooking.jpg" width={2390} height={514} />
       <div className="navbar"></div>
       <div className="user-info-1">SEARCH HOTEL</div>
       {/* <div className="index-image-main">

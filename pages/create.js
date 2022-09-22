@@ -335,8 +335,9 @@ const Create = () => {
     // </div>
 
     <div className="standings">
+      <div className="user-info-NFT">CREATE NFT</div>
       {/* =============================  pick Image form  */}
-      <form onSubmit={pickImage}>
+      <form onSubmit={pickImage} className="upload-img">
         <input type="file" id="nftImage_id" />
         <button>Submit</button>
       </form>

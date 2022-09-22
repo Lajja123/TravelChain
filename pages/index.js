@@ -66,7 +66,7 @@ export default function Home() {
           </span>
         </a>
       </footer> */}
-      <div style={{ height: "700px" }}>
+      <div style={{ height: "750px" }}>
         <div className="index-image-main">
           <Image src="/images/landing.jpg" layout="fill" objectFit="fill" />
         </div>
@@ -92,11 +92,12 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <div className="levels-left-top">TIERS & BENEFITS</div>
       <div className="index-levels">
         <div className="index-levels-left">
           <div className="levels-left-content">
-            <Image src="/images/Artboard47.jpg" width={2390} height={514} />
+            {/* <Image src="/images/Artboard47.jpg" width={2390} height={514} /> */}
           </div>
         </div>
         <div className="index-levels-right">
@@ -110,28 +111,40 @@ export default function Home() {
                   <div className="tier-title">TIER 1</div>
                   <div className="tier-detail">
                     Lorem ipsum dolor sit amet, consectetuer adip- iscing elit,
-                    sed diam nonummy nibh euismod tin
+                    sed diam nonummy nibh euismod tin Lorem ipsum dolor sit
+                    amet, consectetuer adip- iscing elit, sed diam nonummy nibh
+                    euismod tin Lorem ipsum dolor sit amet, consectetuer adip-
+                    iscing elit, sed diam nonummy nibh euismod tin
                   </div>
                 </div>
                 <div className="sub-tiers">
                   <div className="tier-title">TIER 2</div>
                   <div className="tier-detail">
                     Lorem ipsum dolor sit amet, consectetuer adip- iscing elit,
-                    sed diam nonummy nibh euismod tin
+                    sed diam nonummy nibh euismod tin Lorem ipsum dolor sit
+                    amet, consectetuer adip- iscing elit, sed diam nonummy nibh
+                    euismod tin Lorem ipsum dolor sit amet, consectetuer adip-
+                    iscing elit, sed diam nonummy nibh euismod tin
                   </div>
                 </div>
                 <div className="sub-tiers">
                   <div className="tier-title">TIER 3</div>
                   <div className="tier-detail">
                     Lorem ipsum dolor sit amet, consectetuer adip- iscing elit,
-                    sed diam nonummy nibh euismod tin
+                    sed diam nonummy nibh euismod tin Lorem ipsum dolor sit
+                    amet, consectetuer adip- iscing elit, sed diam nonummy nibh
+                    euismod tinLorem ipsum dolor sit amet, consectetuer adip-
+                    iscing elit, sed diam nonummy nibh euismod tin
                   </div>
                 </div>
                 <div className="sub-tiers">
                   <div className="tier-title">TIER 4</div>
                   <div className="tier-detail">
                     Lorem ipsum dolor sit amet, consectetuer adip- iscing elit,
-                    sed diam nonummy nibh euismod tin
+                    sed diam nonummy nibh euismod tin Lorem ipsum dolor sit
+                    amet, consectetuer adip- iscing elit, sed diam nonummy nibh
+                    euismod tin Lorem ipsum dolor sit amet, consectetuer adip-
+                    iscing elit, sed diam nonummy nibh euismod tin
                   </div>
                 </div>
               </div>
@@ -144,6 +157,10 @@ export default function Home() {
           <div className="standing-align">
             <div className="standing-left">
               <div className="standing-left-box">
+                <div className="standing-right">
+                  {" "}
+                  <div className="levels-top-standing">STANDING</div>
+                </div>
                 <div className="standing-box-align">
                   <div className="standing-box-header">YOUR LEVEL</div>
                   <div className="inner-box">
@@ -180,7 +197,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* <div className="standing-right">Right</div> */}
           </div>
         </div>
       </div>
