@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 //Contract Address
@@ -12,6 +12,7 @@ import CrypTripABI from "../ABI/CrypTripABI.json";
 
 const Create = () => {
   const [nftName, setNFT] = useState("");
+  const [fetchData, setFetchData] = useState([]);
 
   console.log(nftName);
   const [ipfsImage, setIpfsImage] = useState(); //setting up Image to upload on IPFS
@@ -178,53 +179,53 @@ const Create = () => {
       });
   }
 
-  // async function fetchNftImages() {
-  //   let nameArray = [];
-  //   let descArray = [];
-  //   let imageArray = [];
-  //   console.log("response from Retrive Nft details API");
-  //   const optionsNew = {
-  //     method: "GET",
-  //     url: `https://api.nftport.xyz/v0/nfts/${contractData[0]}`,
-  //     // url: `https://api.nftport.xyz/v0/nfts/${contractData[0]}/${tokenData[i]}`,
-  //     // url: 'https://api.nftport.xyz/v0/nfts/0x508c019b90976d654a90d5cecd49c0b7a810a357/542090625321991293795',
-  //     params: { chain: "rinkeby", include: "all" },
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: "4455109c-4819-40f5-9ec5-5882af32a7ed",
-  //     },
-  //   };
-  //   await axios
-  //     .request(optionsNew)
-  //     .then(function (response) {
-  //       for (let i = 0; i <= tokenData.length; i++) {
-  //         console.log(response.data);
-  //         console.log("url: " + response.data.nfts[i].file_url);
-  //         console.log("name: " + response.data.nfts[i].metadata.name);
-  //         console.log("Desc: " + response.data.nfts[i].metadata.description);
-  //         console.log("====================================");
-  //         console.log("====================================");
+  async function fetchNftImages() {
+    let nameArray = [];
+    let descArray = [];
+    let imageArray = [];
+    console.log("response from Retrive Nft details API");
+    const optionsNew = {
+      method: "GET",
+      url: `https://api.nftport.xyz/v0/nfts/0x508C019B90976D654a90d5CECD49C0B7A810a357`,
+      // url: `https://api.nftport.xyz/v0/nfts/${contractData[0]}/${tokenData[i]}`,
+      // url: 'https://api.nftport.xyz/v0/nfts/0x508c019b90976d654a90d5cecd49c0b7a810a357/542090625321991293795',
+      params: { chain: "rinkeby", include: "all" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "4455109c-4819-40f5-9ec5-5882af32a7ed",
+      },
+    };
+    await axios
+      .request(optionsNew)
+      .then(function (response) {
+        for (let i = 0; i <= tokenData.length; i++) {
+          console.log(response.data);
+          console.log("url: " + response.data.nfts[i].file_url);
+          console.log("name: " + response.data.nfts[i].metadata.name);
+          console.log("Desc: " + response.data.nfts[i].metadata.description);
+          console.log("====================================");
+          console.log("====================================");
 
-  //         // nameArray.push(response.data.nfts[i].metadata.name);
-  //         // descArray.push(response.data.nfts[i].metadata.description);
-  //         // imageArray.push(response.data.nfts[i].file_url);
-  //         // setName(...name, nameArray);
-  //         // setDesc(...desc, descArray);
-  //         // setReturnImage(...return_Image, imageArray);
-  //         data.push([
-  //           response.data.nfts[i].metadata.name,
-  //           response.data.nfts[i].metadata.description,
-  //           response.data.nfts[i].file_url,
-  //         ]);
-  //       }
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error);
-  //     });
-  //   setData(data);
-  // }
+          // nameArray.push(response.data.nfts[i].metadata.name);
+          // descArray.push(response.data.nfts[i].metadata.description);
+          // imageArray.push(response.data.nfts[i].file_url);
+          // setName(...name, nameArray);
+          // setDesc(...desc, descArray);
+          // setReturnImage(...return_Image, imageArray);
+          data.push([
+            setFetchData(response.data.nfts[i].metadata.name),
+            response.data.nfts[i].metadata.description,
+            response.data.nfts[i].file_url,
+          ]);
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    setData(data);
+  }
 
-  // console.log(name);
+  console.log(name);
 
   const CreateNFT = async () => {
     const web3Modal = new Web3Modal();
@@ -368,6 +369,7 @@ const Create = () => {
       <button onClick={askApiToMint} style={{ margin: 50, padding: 10 }}>
         Mint NFT
       </button>
+      <button onClick={fetchNftImages}>Fetchdata</button>
 
       {/* <form onSubmit={fetchNfts}>
         <input type="text" id="address_id" placeholder="Enter Address" />

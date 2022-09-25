@@ -7,13 +7,23 @@ import { create as ipfsHttpClient } from "ipfs-http-client";
 import { ContractAddress } from "../config";
 import CrypTripABI from "../ABI/CrypTripABI.json";
 import { useState } from "react";
+import { Intercom, Window, Launcher } from "@relaycc/receiver";
+import Unstoppable from "./Unstoppable";
+import { ethers } from "ethers";
+// import { WorldIDWidget } from "@worldcoin/id"
+// import { useSigner } from "wagmi";
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  // const WorldIDWidget = dynamic<WidgetProps>(
+  //   () => import("@worldcoin/id").then((mod) => mod.WorldIDWidget),
+  //   { ssr: false }
+  // );
 
   const [acc, setAcc] = useState("");
+  const [wallet, setWallet] = useState("");
 
   async function onInit() {
     if (typeof web3 !== "undefined") {
@@ -29,6 +39,12 @@ function MyApp({ Component, pageProps }) {
         // console.log(accounts[0])
         return accounts[0];
       });
+      const { ethereum } = window;
+
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      console.log(signer);
+      setWallet(signer);
       setAcc(account);
     } else {
       return null;
@@ -40,6 +56,30 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
       <nav className="navs">
+        <Launcher wallet={wallet} />
+        <Intercom>
+          <Window />
+        </Intercom>
+        {/* <WorldIDWidget
+          actionId="wid_BPZsRJANxct2cZxVRyh80SFG" // obtain this from developer.worldcoin.org
+          signal="my_signal"
+          enableTelemetry
+          onSuccess={(verificationResponse) =>
+            console.log(verificationResponse)
+          }
+          onError={(error) => console.error(error)}
+          debug={true} // to aid with debugging, remove in production
+        />
+        ; */}
+        {/* <button onClick={() => launch()} className="relay">
+          Open Conversations List
+        </button>
+        <button
+          className="relay"
+          onClick={() => launch("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045")}
+        >
+          Talk to Vitalik
+        </button> */}
         <div className="nav-left">
           <div className="nav-logo">
             <Image
@@ -133,6 +173,8 @@ function MyApp({ Component, pageProps }) {
           <div className="nav-member">
             <div className="nav-search"></div>
             <div className="nav-signup">
+              <Unstoppable />
+
               {acc ? (
                 <div
                   style={{
