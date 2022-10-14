@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 // Resolves query or returns null
-export default function useQuery() {
+export default function UseQuery() {
   const router = useRouter();
   const hasQueryParams =
     /\[.+\]/.test(router.route) || /\?./.test(router.asPath);
