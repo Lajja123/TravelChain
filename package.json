@@ -28,6 +28,17 @@
     "web3": "^1.7.0",
     "web3modal": "^1.9.5"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "no-unused-vars": "off",
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-page-custom-font": "off"
+    }
+  },
   "devDependencies": {
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.10"

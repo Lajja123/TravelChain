@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import UseQuery from "../hooks/UseQuery";
+// import useQuery from "../hooks/useQuery";
 
 import React from "react";
 import { useState } from "react";
@@ -14,7 +14,7 @@ import { ContractAddress } from "../../config";
 import CrypTripABI from "../../ABI/CrypTripABI.json";
 
 const searches = () => {
-  const query = UseQuery();
+  // const query = useQuery();
   const [loading, setLoading] = useState(true);
   const [sHotel, setSingleHotel] = useState([]);
 
@@ -33,19 +33,19 @@ const searches = () => {
 
   const [Total, setTotal] = useState(0);
 
-  useEffect(() => {
-    //console.log(query);
-    const hotelData = singleHotel(query)
-      .then((result) => {
-        console.log(result);
-        return result;
-      })
-      .catch((error) => {
-        console.log(error);
-        return null;
-      });
-    console.log(hotelData);
-  }, [query]);
+  // useEffect(() => {
+  //   //console.log(query);
+  //   const hotelData = singleHotel(query)
+  //     .then((result) => {
+  //       console.log(result);
+  //       return result;
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       return null;
+  //     });
+  //   console.log(hotelData);
+  // }, [query]);
 
   const singleHotel = async (query) => {
     const web3Modal = new Web3Modal();
