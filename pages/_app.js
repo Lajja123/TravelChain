@@ -34,8 +34,8 @@ function MyApp({ Component, pageProps }) {
 
   const login = async () => {
     const uauth = new UAuth({
-      clientID: "a3f983ec-9d40-4485-a8d6-f60072b32292",
-      redirectUri: "http://localhost:3000",
+      clientID: "ca1298d2-7c2f-4416-be88-61b92b212b43",
+      redirectUri: "https://travel-chain.vercel.app/",
       scope: "openid wallet",
     });
     const authorization = await uauth.loginWithPopup();
