@@ -32,31 +32,30 @@ function MyApp({ Component, pageProps }) {
   const [authoriz, setAuthorization] = useState();
   const [userAuth, setUserAuth] = useState(null);
 
-
   const login = async () => {
     const uauth = new UAuth({
-      clientID: 'a3f983ec-9d40-4485-a8d6-f60072b32292',
-      redirectUri: 'http://localhost:3000',
-      scope: 'openid wallet'
-    })
-    const authorization = await uauth.loginWithPopup()
+      clientID: "a3f983ec-9d40-4485-a8d6-f60072b32292",
+      redirectUri: "http://localhost:3000",
+      scope: "openid wallet",
+    });
+    const authorization = await uauth.loginWithPopup();
     console.log(authorization);
     setAuthorization(uauth);
-    setAddress(authorization.idToken.sub)
+    setAddress(authorization.idToken.sub);
     cookie.set("udaddress", authorization.idToken.sub, {
       path: "/",
       maxAge: 5000,
     });
-  }
+  };
   useEffect(() => {
-    setAddress(cookie.get('udaddress'))
+    setAddress(cookie.get("udaddress"));
     const uauth = new UAuth({
-      clientID: 'a3f983ec-9d40-4485-a8d6-f60072b32292',
-      redirectUri: 'http://localhost:3000',
-      scope: 'openid wallet'
-    })
+      clientID: "a3f983ec-9d40-4485-a8d6-f60072b32292",
+      redirectUri: "http://localhost:3000",
+      scope: "openid wallet",
+    });
     setAuthorization(uauth);
-  }, [])
+  }, []);
   const logout = async () => {
     await authoriz.logout();
     cookie.remove("udaddress");
@@ -90,12 +89,11 @@ function MyApp({ Component, pageProps }) {
     }
   }
 
-  onInit();
+  // onInit();
 
   return (
     <div>
       <nav className="navs">
-
         <Launcher wallet={wallet} />
         <Intercom>
           <Window />
@@ -120,7 +118,7 @@ function MyApp({ Component, pageProps }) {
         >
           Talk to Vitalik
         </button> */}
-      
+
         <div className="nav-left">
           <div className="nav-logo">
             <Image
@@ -248,46 +246,38 @@ function MyApp({ Component, pageProps }) {
                   Connect
                 </button>
                 <span>{Address}</span>  */}
-              {
-                Address ? (
-                  <ul>
-                    <li className="rmv">
-                      <div>
-                        <span className="udname">{Address}</span>
-                      </div>
-                    </li>
-                    <li  className="rmv">
-
-
-                      <button className="bn29"
-                        onClick={() => {
-                          logout();
-                        }}
-                        
-                      >
-                        Logout
-                      </button>
-
-
-                    </li>
-                  </ul>
-                ) : (
-                  <>
-                    <li  className="rmv">
-                      <button
-                        className="bn29"
-                        onClick={() => {
-                          login();
-                        }}
-                      >
-                        Login With Unstoppable Domain 
-                      </button>
-                    </li>
-                  </>
-                )
-              }
-
-
+              {Address ? (
+                <ul>
+                  <li className="rmv">
+                    <div>
+                      <span className="udname">{Address}</span>
+                    </div>
+                  </li>
+                  <li className="rmv">
+                    <button
+                      className="bn29"
+                      onClick={() => {
+                        logout();
+                      }}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              ) : (
+                <>
+                  <li className="rmv">
+                    <button
+                      className="bn29"
+                      onClick={() => {
+                        login();
+                      }}
+                    >
+                      Login With Unstoppable Domain
+                    </button>
+                  </li>
+                </>
+              )}
             </div>
           </div>
         </div>
